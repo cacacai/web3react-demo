@@ -2,56 +2,44 @@ import * as React from "react";
 import "./styles.css";
 import {
   ChakraProvider,
-  Flex,
-  Text,
-  Link,
-  Box,
-  Grid,
-  HStack,
-  StackDivider
 } from "@chakra-ui/react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link as RouteLink
-} from "react-router-dom";
-import WollectView from "./pages/web3/WollectView"
-import Test from "./pages/Test"
+  Route} from "react-router-dom";
+import NavBar from "./components/NavBar";
 
+import WollectView from "./pages/web3/WollectView";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
+import Detail from "./pages/Detail";
+import Person from "./pages/Person";
 
-type NavLinkProps = { text: string };
-const NavLink = ({ text }: NavLinkProps) => (
-  <Link>
-    <Text fontSize="xl">{text}</Text>
-  </Link>
-);
-
-const NavBar = () => (
-  <HStack spacing={3} divider={<StackDivider />} as="nav">
-    <RouteLink to="/">
-      <NavLink text="Home" />
-    </RouteLink>
-    <RouteLink to="/about">
-      <NavLink text="About" />
-    </RouteLink>
-  </HStack>
-);
 
 export default function App() {
   return (
-    <ChakraProvider>
-      <Router>
+    <Router>
         <NavBar />
         <Switch>
-          <Route path="/about">
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/detail">
+            <Detail />
+          </Route>
+          <Route path="/create">
+            <Create />
+          </Route>
+          <Route path="/person">
+            <Person />
+          </Route>
+          <Route path="/wollect">
             <WollectView />
           </Route>
           <Route path="/">
-            <Test />
+            <Home />
           </Route>
         </Switch>
       </Router>
-    </ChakraProvider>
   );
 }

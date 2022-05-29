@@ -15,8 +15,7 @@ import { Tooltip } from "@chakra-ui/react";
 import { networkParams } from "./networks";
 import { connectors } from "./connectors";
 import { toHex, truncateAddress } from "./utils";
-
-export default function WollectView() {
+function WollectView() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     library,
@@ -112,9 +111,6 @@ export default function WollectView() {
 
   return (
     <>
-      <Text position="absolute" top={0} right="15px">
-        If you're in the sandbox, first "Open in New Window" ⬆️
-      </Text>
       <VStack justifyContent="center" alignItems="center" h="100vh">
         <HStack marginBottom="10px">
           <Text
@@ -240,3 +236,4 @@ export default function WollectView() {
     </>
   );
 }
+export default WollectView
