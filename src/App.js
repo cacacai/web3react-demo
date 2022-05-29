@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import SelectWalletModal from "./Modal";
 import { useWeb3React } from "@web3-react/core";
-import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
+// import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
 import { Tooltip } from "@chakra-ui/react";
 import { networkParams } from "./networks";
 import { connectors } from "./connectors";
@@ -151,9 +151,9 @@ export default function Home() {
           <HStack>
             <Text>{`Connection Status: `}</Text>
             {active ? (
-              <CheckCircleIcon color="green" />
+              <Text>green</Text>
             ) : (
-              <WarningIcon color="#cd5700" />
+              <Text>red</Text>
             )}
           </HStack>
 
@@ -222,13 +222,12 @@ export default function Home() {
                 {verified !== undefined ? (
                   verified === true ? (
                     <VStack>
-                      <CheckCircleIcon color="green" />
-                      <Text>Signature Verified!</Text>
+                      <Text color="green">Signature Verified!</Text>
                     </VStack>
                   ) : (
                     <VStack>
-                      <WarningIcon color="red" />
-                      <Text>Signature Denied!</Text>
+                      
+                      <Text color="red">Signature Denied!</Text>
                     </VStack>
                   )
                 ) : null}
